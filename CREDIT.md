@@ -1,5 +1,13 @@
 # Credit Section
 
+## Flake8
+
+The software includes the `flake8` linter distributed under
+the terms of `the MIT license` and owned by the user `@PyCQA`
+of the web-service `GitHub`.
+
+- [flake8, Tarek Ziadé][Flake8]
+
 ## Flaticon
 
 The software includes the images distributed under the terms of
@@ -18,5 +26,6 @@ of the web-service `GitHub`.
 
 <!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --->
 
+[Flake8]: https://github.com/pycqa/flake8
 [Flaticon]: https://www.flaticon.com/free-icons/animal-kingdom
 [Pytest]: https://github.com/pytest-dev/pytest
