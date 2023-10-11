@@ -3,9 +3,11 @@ name: flake8
 
 on:
     pull_request:
-        branches: [trunk]
+        branches:
+            - trunk
     push:
-        branches: [trunk]
+        branches:
+            - trunk
 
 jobs:
     flake8:
