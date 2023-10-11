@@ -24,8 +24,17 @@ of the web-service `GitHub`.
 
 - [pytest, 2004, Krekel et al.][Pytest]
 
+## Yamllint
+
+The software includes the `yamllint` linter distributed under the
+terms of `the GPL-3.0 license` and owned by the user `@adrienverge`
+of the web-service `GitHub`.
+
+- [yamllint, Adrien Vergé][Yamllint]
+
 <!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --->
 
 [Flake8]: https://github.com/pycqa/flake8
 [Flaticon]: https://www.flaticon.com/free-icons/animal-kingdom
 [Pytest]: https://github.com/pytest-dev/pytest
+[Yamllint]: https://github.com/adrienverge/yamllint
