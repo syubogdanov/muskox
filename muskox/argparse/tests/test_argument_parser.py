@@ -177,7 +177,10 @@ def test_unknown_option(parser: ArgumentParser, command: str, prefix: str):
         if option in {"-h", "--help", "-v", "--version"}:
             continue
 
+        arg1: str = random_string()
+        arg2: str = random_string()
+
         with pytest.raises(SystemExit) as subprocess:
-            parser.parse_args([command, option])
+            parser.parse_args([command, arg1, arg2, option])
 
         assert subprocess.value.code == 2
