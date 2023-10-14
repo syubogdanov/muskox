@@ -42,7 +42,7 @@ jobs:
                   PYTHON_VERSION: ${{ matrix.python-version }}
               run: |
                   report="pytest-$OS-python-$PYTHON_VERSION.rpt"
-                  python -m pytest 2>&1 | tee $report
+                  python -m pytest --verbose 2>&1 | tee $report
 
             - name: Save Report
               uses: actions/upload-artifact@v3
