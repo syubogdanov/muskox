@@ -8,9 +8,9 @@ from muskox.package import version
 from muskox.web.typing import URL
 
 
-class Command(enum.StrEnum):
-    LOCAL = enum.auto()
-    REMOTE = enum.auto()
+class Command(str, enum.Enum):
+    LOCAL = "local"
+    REMOTE = "remote"
 
 
 class ArgumentParser(argparse.ArgumentParser):
