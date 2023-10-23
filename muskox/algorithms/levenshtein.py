@@ -7,7 +7,7 @@ def create_fill_levenshtein_matrix(size_lh_pp: int, size_rh_pp: int) -> list:
     return matrix
 
 
-def damerau_levenshtein(lh: str, rh: str) -> int:
+def levenshtein(lh: str, rh: str) -> int:
     size_lh_pp = len(lh) + 1
     size_rh_pp = len(rh) + 1
 
@@ -21,4 +21,3 @@ def damerau_levenshtein(lh: str, rh: str) -> int:
             table_dist[i][j] = value
 
     return table_dist[size_lh_pp - 1][size_rh_pp - 1]
-
