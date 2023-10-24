@@ -1,4 +1,5 @@
-def create_fill_levenshtein_matrix(size_lh_pp: int, size_rh_pp: int) -> list[list[int]]:
+def create_fill_levenshtein_matrix(size_lh_pp: int,
+                                   size_rh_pp: int) -> list[list[int]]:
     matrix = [[0 for _ in range(size_rh_pp)] for _ in range(size_lh_pp)]
     for i in range(size_lh_pp):
         matrix[i][0] = i
