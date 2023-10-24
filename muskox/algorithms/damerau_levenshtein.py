@@ -15,11 +15,14 @@ def damerau_levenshtein(lh: str, rh: str) -> int:
 
     for i in range(1, size_lh_pp):
         for j in range(1, size_rh_pp):
+            is_equal = lh[i - 1] != rh[j - 1]
             value = min(table_dist[i - 1][j] + 1,
                         table_dist[i][j - 1] + 1,
-                        table_dist[i - 1][j - 1] + (lh[i - 1] != rh[j - 1]))
-            if i > 1 and j > 1 and lh[i - 1] == rh[j - 2] and lh[i - 2] == rh[j - 1]:
-                value = min(value, table_dist[i - 2][j - 2] + (lh[i - 1] != rh[j - 1]))
+                        table_dist[i - 1][j - 1] + is_equal)
+            if i > 1 and j > 1 and lh[i - 1] == rh[j - 2] \
+               and lh[i - 2] == rh[j - 1]:
+                value = min(value,
+                            table_dist[i - 2][j - 2] + is_equal)
             table_dist[i][j] = value
 
     return table_dist[size_lh_pp - 1][size_rh_pp - 1]
