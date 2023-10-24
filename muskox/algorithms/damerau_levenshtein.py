@@ -1,4 +1,4 @@
-def create_fill_levenshtein_matrix(size_lh_pp: int, size_rh_pp: int) -> list:
+def create_fill_levenshtein_matrix(size_lh_pp: int, size_rh_pp: int) -> list[list[int]]:
     matrix = [[0 for _ in range(size_rh_pp)] for _ in range(size_lh_pp)]
     for i in range(size_lh_pp):
         matrix[i][0] = i
@@ -15,14 +15,14 @@ def damerau_levenshtein(lh: str, rh: str) -> int:
 
     for i in range(1, size_lh_pp):
         for j in range(1, size_rh_pp):
-            is_equal = lh[i - 1] != rh[j - 1]
+            is_different = int(lh[i - 1] != rh[j - 1])
             value = min(table_dist[i - 1][j] + 1,
                         table_dist[i][j - 1] + 1,
-                        table_dist[i - 1][j - 1] + is_equal)
+                        table_dist[i - 1][j - 1] + is_different)
             if i > 1 and j > 1 and lh[i - 1] == rh[j - 2] \
                and lh[i - 2] == rh[j - 1]:
                 value = min(value,
-                            table_dist[i - 2][j - 2] + is_equal)
+                            table_dist[i - 2][j - 2] + is_different)
             table_dist[i][j] = value
 
     return table_dist[size_lh_pp - 1][size_rh_pp - 1]
