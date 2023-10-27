@@ -29,7 +29,7 @@ jobs:
 
             - name: Run Linter
               shell: bash
-              run: python -m yamllint --no-warnings . 2>&1 | tee yamllint.rpt
+              run: python -m yamllint --no-warnings .
 
             - name: Save Report
               uses: actions/upload-artifact@v3
