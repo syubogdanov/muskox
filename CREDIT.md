@@ -24,6 +24,14 @@ of the web-service `GitHub`.
 
 - [pytest, 2004, Krekel et al.][Pytest]
 
+## Radon
+
+The software includes the `radon` linter distributed under the
+terms of `the MIT license` and owned by the user `@rubik` of the
+web-service `GitHub`.
+
+- [radon, Michele Lacchia][Radon]
+
 ## Yamllint
 
 The software includes the `yamllint` linter distributed under the
@@ -37,4 +45,5 @@ of the web-service `GitHub`.
 [Flake8]: https://github.com/pycqa/flake8
 [Flaticon]: https://www.flaticon.com/free-icons/animal-kingdom
 [Pytest]: https://github.com/pytest-dev/pytest
+[Radon]: https://github.com/rubik/radon
 [Yamllint]: https://github.com/adrienverge/yamllint
