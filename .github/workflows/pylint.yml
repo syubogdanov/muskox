@@ -29,11 +29,11 @@ jobs:
                     --verbose \
                     --enable-all-extensions \
                     --recursive true \
-                    --disable C0103
-                    --disable C0114
-                    --disable C0115
-                    --disable C0116
-                    --disable E0401
-                    --disable E1101
-                    --disable R0903
+                    --disable C0103 \
+                    --disable C0114 \
+                    --disable C0115 \
+                    --disable C0116 \
+                    --disable E0401 \
+                    --disable E1101 \
+                    --disable R0903 \
                     --disable W0406
