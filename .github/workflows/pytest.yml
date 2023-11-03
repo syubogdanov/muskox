@@ -1,6 +1,4 @@
----
 name: pytest
-
 on:
     pull_request:
         branches:
@@ -8,14 +6,21 @@ on:
     push:
         branches:
             - trunk
-
 jobs:
     pytest:
-
         strategy:
             matrix:
-                os: [macos-latest, ubuntu-latest, windows-latest]
-                python-version: ["3.9", "3.10", "3.11", "3.12"]
+                python-version:
+                    - "3.7"
+                    - "3.8"
+                    - "3.9"
+                    - "3.10"
+                    - "3.11"
+                    - "3.12"
+                os:
+                    - macos-latest
+                    - ubuntu-latest
+                    - windows-latest
 
         runs-on: ${{ matrix.os }}
         steps:
@@ -36,18 +41,4 @@ jobs:
               run: pip install pytest
 
             - name: Run Tests
-              shell: bash
-              env:
-                  OS: ${{ matrix.os }}
-                  PYTHON_VERSION: ${{ matrix.python-version }}
-              run: |
-                  report="pytest-$OS-python-$PYTHON_VERSION.rpt"
-                  python -m pytest --verbose
-
-            - name: Save Report
-              uses: actions/upload-artifact@v3
-              with:
-                  # yamllint disable rule:line-length
-                  name: pytest-${{ matrix.os }}-python-${{ matrix.python-version }}.rpt
-                  path: pytest-${{ matrix.os }}-python-${{ matrix.python-version }}.rpt
-                  # yamllint enable rule:line-length
+              run: python -m pytest --verbose

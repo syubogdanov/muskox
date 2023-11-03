@@ -1,6 +1,4 @@
----
 name: yamllint
-
 on:
     pull_request:
         branches:
@@ -8,10 +6,8 @@ on:
     push:
         branches:
             - trunk
-
 jobs:
     yamllint:
-
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -30,9 +26,3 @@ jobs:
             - name: Run Linter
               shell: bash
               run: python -m yamllint --no-warnings .
-
-            - name: Save Report
-              uses: actions/upload-artifact@v3
-              with:
-                  name: yamllint.rpt
-                  path: yamllint.rpt
