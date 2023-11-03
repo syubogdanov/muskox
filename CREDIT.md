@@ -16,6 +16,14 @@ web-service `Flaticon`.
 
 - [Animal kingdom icons created by Freepik - Flaticon][Flaticon]
 
+## Pylint
+
+The software includes the `pylint` linter distributed under the
+terms of `the GPL-2.0 license` and owned by the user `@pylint-dev`
+of the web-service `GitHub`.
+
+- [pylint, Pierre Sassoulas][Pylint]
+
 ## Pytest
 
 The software includes the `pytest` framework distributed under the
@@ -36,5 +44,6 @@ of the web-service `GitHub`.
 
 [Flake8]: https://github.com/pycqa/flake8
 [Flaticon]: https://www.flaticon.com/free-icons/animal-kingdom
+[Pylint]: https://github.com/pylint-dev/pylint
 [Pytest]: https://github.com/pytest-dev/pytest
 [Yamllint]: https://github.com/adrienverge/yamllint
