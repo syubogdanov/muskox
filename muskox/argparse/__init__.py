@@ -2,9 +2,6 @@ import argparse
 import enum
 import pathlib
 
-from muskox.package import name
-from muskox.package import version
-
 from muskox.web.typing import URL
 
 
@@ -18,7 +15,7 @@ class ArgumentParser(argparse.ArgumentParser):
 
     def __init__(self):
         super().__init__(
-            prog=name,
+            prog="muskox",
             add_help=False,
         )
 
@@ -34,7 +31,7 @@ class ArgumentParser(argparse.ArgumentParser):
             "--version",
             action="version",
             help="display the version and exit",
-            version=version,
+            version="0.0",
         )
 
         subparsers = super().add_subparsers(

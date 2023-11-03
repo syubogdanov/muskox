@@ -6,8 +6,6 @@ import pytest
 from muskox.argparse import ArgumentParser
 from muskox.argparse import Command
 
-from muskox.package import name
-
 from muskox.utils.string import random_string
 
 from muskox.web.typing import URL
@@ -126,7 +124,7 @@ def test_remote_command_excess_arguments(parser: ArgumentParser):
 
 
 def test_prog(parser: ArgumentParser):
-    assert parser.prog == name
+    assert parser.prog == "muskox"
 
 
 @pytest.mark.parametrize(
