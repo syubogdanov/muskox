@@ -1,0 +1,10 @@
+# Bazel
+bazel-bin/
+bazel-muskox/
+bazel-out/
+
+# JetBrains: CLion, PyCharm
+.idea/
+
+# Visual Studio Code
+.vscode/
