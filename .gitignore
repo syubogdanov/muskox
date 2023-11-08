@@ -2,6 +2,7 @@
 bazel-bin/
 bazel-muskox/
 bazel-out/
+bazel-testlogs/
 
 # JetBrains: CLion, PyCharm
 .idea/
