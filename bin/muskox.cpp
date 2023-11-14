@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include <include/argparse/argparse.hpp>
+#include <argparse/argparse.hpp>
 
 #include "src/config/config.hpp"
 
