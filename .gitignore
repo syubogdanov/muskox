@@ -7,5 +7,10 @@ bazel-testlogs/
 # JetBrains: CLion, PyCharm
 .idea/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Visual Studio Code
 .vscode/
