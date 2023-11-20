@@ -7,6 +7,9 @@ bazel-testlogs/
 # JetBrains: CLion, PyCharm
 .idea/
 
+# Muskox
+bazel/env/
+
 # Python
 __pycache__/
 *.py[cod]
