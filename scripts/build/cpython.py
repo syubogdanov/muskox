@@ -70,10 +70,16 @@ def main():
         for src in get_srcs()
     ]
 
+    if not srcs:
+        raise RuntimeError("The script did not detect any of source files")
+
     hdrs: list[str] = [
         hdr.relative_to(root).as_posix()
         for hdr in get_hdrs()
     ]
+
+    if not hdrs:
+        raise RuntimeError("The script did not detect any of header files")
 
     includes: list[str] = [
         include.relative_to(root).as_posix()
