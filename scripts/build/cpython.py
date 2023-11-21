@@ -63,6 +63,11 @@ def main():
     if pathlib.Path.cwd() != get_muskox_root():
         raise RuntimeError("The script must be run from the 'muskox' root")
 
+    major, minor = get_python_version()
+
+    if (major, minor) < (3, 9):
+        raise RuntimeError(f"Python {major}.{minor} is not supported")
+
     root: str = get_python_root().as_posix()
 
     srcs: list[str] = [
