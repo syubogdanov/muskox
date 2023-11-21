@@ -43,7 +43,7 @@ def get_srcs() -> list[pathlib.Path]:
 
     elif is_macos():
         libpath = pathlib.Path(sysconfig.get_config_var("LIBDIR"))
-        pattern: str = f"libpython{major}{minor}.dylib"
+        pattern: str = f"libpython{major}.{minor}.dylib"
 
     else:
         libpath = pathlib.Path(sysconfig.get_config_var("LIBDIR"))
