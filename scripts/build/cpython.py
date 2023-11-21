@@ -11,6 +11,10 @@ def get_python_version() -> tuple[int, int]:
     return (major, minor)
 
 
+def is_macos() -> bool:
+    return platform.system() == "Darwin"
+
+
 def is_windows() -> bool:
     return platform.system() == "Windows"
 
@@ -36,12 +40,16 @@ def get_srcs() -> list[pathlib.Path]:
     if is_windows():
         libpath = get_python_root().joinpath("libs")
         pattern: str = f"python{major}{minor}.lib"
-        return list(libpath.rglob(pattern))
+
+    elif is_macos():
+        libpath = pathlib.Path(sysconfig.get_config_var("LIBDIR"))
+        pattern: str = f"libpython{major}{minor}.dylib"
 
     else:
         libpath = pathlib.Path(sysconfig.get_config_var("LIBDIR"))
         pattern: str = f"libpython{major}{minor}.so"
-        return list(libpath.rglob(pattern))
+
+    return list(libpath.rglob(pattern))
 
 
 def get_hdrs() -> list[pathlib.Path]:
