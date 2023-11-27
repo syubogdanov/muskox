@@ -1,11 +1,10 @@
-# Bazel
-bazel-bin/
-bazel-muskox/
-bazel-out/
-bazel-testlogs/
-
-# JetBrains: CLion, PyCharm
+# JetBrains: PyCharm
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Visual Studio Code
 .vscode/
