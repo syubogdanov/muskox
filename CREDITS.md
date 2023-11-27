@@ -5,6 +5,7 @@
 | [Musk Ox Icon][01] | [@Freepik][02]     | [Flaticon][03] | [Flaticon][04] | Image          |
 | [GitLoad][05]      | [@syubogdanov][06] | [GitHub][07]   | [MIT][08]      | Python Library |
 | [jellyfish][09]    | [@jamesturk][10]   | [GitHub][11]   | [MIT][12]      | Python Library |
+| [flake8][13]       | [@PyCQA][14]       | [GitHub][15]   | [MIT][16]      | Python Linter  |
 
 [01]: https://www.flaticon.com/free-icon/musk-ox_3762980
 [02]: https://www.flaticon.com/authors/freepik
@@ -20,3 +21,8 @@
 [10]: https://github.com/jamesturk
 [11]: https://github.com/
 [12]: https://github.com/jamesturk/jellyfish/blob/main/LICENSE
+
+[13]: https://github.com/PyCQA/flake8
+[14]: https://github.com/PyCQA
+[15]: https://github.com/
+[16]: https://github.com/PyCQA/flake8/blob/main/LICENSE
