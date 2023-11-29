@@ -11,5 +11,4 @@ def jaro_winkler(lhs: str, rhs: str) -> float:
     if not lhs and not rhs:
         return 1.0
 
-    jaro_winkler_similarity = jellyfish.jaro_winkler_similarity(lhs, rhs)
-    return jaro_winkler_similarity
+    return jellyfish.jaro_winkler_similarity(lhs, rhs)
