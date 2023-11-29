@@ -42,8 +42,11 @@ def main():
     muskox: argparse.ArgumentParser = get_parser()
     args: argparse.Namespace = muskox.parse_args()
 
-    oxpaths: list[str] = [args.lhs, args.rhs] + args.oxpaths
+    oxpaths: set[str] = {args.lhs, args.rhs}.union(args.oxpaths)
     threads: int = args.threads
+
+    if len(oxpaths) < 2:
+        muskox.error("The number of unique oxpaths must be at least two")
 
     try:
         with multiprocessing.Pool(threads) as executor:
