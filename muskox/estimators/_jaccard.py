@@ -14,7 +14,4 @@ def jaccard(lhs: str, rhs: str) -> float:
     len_intersect_words = len(lh_set.intersection(rh_set))
     len_union_words = len(lh_set.union(rh_set))
 
-    if len_union_words == 0:
-        return 0.0
-
     return len_intersect_words / len_union_words
