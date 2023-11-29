@@ -1,7 +1,8 @@
 import argparse
+import multiprocessing
 import pathlib
 
-from muskox import oxpath
+from muskox.oxpath import fetch
 
 
 def get_parser() -> argparse.ArgumentParser:
@@ -19,6 +20,21 @@ def get_parser() -> argparse.ArgumentParser:
         metavar="OXPATH",
     )
 
+    parser.add_argument(
+        "oxpaths",
+        nargs=argparse.REMAINDER,
+        help=argparse.SUPPRESS,
+    )
+
+    parser.add_argument(
+        "-t",
+        "--threads",
+        default=16,
+        type=int,
+        help="the maximum number of threads",
+        metavar="N",
+    )
+
     return parser
 
 
@@ -26,9 +42,12 @@ def main():
     muskox: argparse.ArgumentParser = get_parser()
     args: argparse.Namespace = muskox.parse_args()
 
+    oxpaths: list[str] = [args.lhs, args.rhs] + args.oxpaths
+    threads: int = args.threads
+
     try:
-        lhs: pathlib.Path = oxpath.fetch(args.lhs)  # noqa
-        rhs: pathlib.Path = oxpath.fetch(args.rhs)  # noqa
+        with multiprocessing.Pool(threads) as executor:
+            paths: list[pathlib.Path] = executor.map(fetch, oxpaths)  # noqa
 
     except Exception as exception:
         muskox.error(exception)
