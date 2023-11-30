@@ -24,6 +24,7 @@ def get_parser() -> argparse.ArgumentParser:
         "oxpaths",
         nargs=argparse.REMAINDER,
         help=argparse.SUPPRESS,
+        metavar="...",
     )
 
     parser.add_argument(
