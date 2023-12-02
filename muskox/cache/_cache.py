@@ -41,6 +41,7 @@ def load(key: str) -> typing.Optional[pathlib.Path]:
         raise TypeError("The argument 'key' must be 'str'")
 
     symlink: pathlib.Path = get_cache_dir() / hexhash(key)
+
     if not symlink.exists(follow_symlinks=False):
         return None
 
