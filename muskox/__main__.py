@@ -2,12 +2,13 @@ import argparse
 import multiprocessing
 import pathlib
 
-from muskox.cli import get_parser
-from muskox.oxpath import fetch
+from muskox import cache
+from muskox import cli
+from muskox import oxpath
 
 
 def main():
-    muskox: argparse.ArgumentParser = get_parser()
+    muskox: argparse.ArgumentParser = cli.get_parser()
     args: argparse.Namespace = muskox.parse_args()
 
     oxpaths: set[str] = {args.lhs, args.rhs}.union(args.oxpaths)
@@ -18,9 +19,11 @@ def main():
     if threads <= 0:
         muskox.error("The number of threads must be positive")
 
+    cache.clean()  # Note that cleanup must be performed before using threads
+
     try:
         with multiprocessing.Pool(threads) as executor:
-            paths: list[pathlib.Path] = executor.map(fetch, oxpaths)  # noqa
+            paths: list[pathlib.Path] = executor.map(oxpath.fetch, oxpaths)  # noqa
 
     except Exception as exception:
         muskox.error(exception)
