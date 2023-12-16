@@ -6,6 +6,8 @@ import urllib.error
 from gitload import bitbucket
 from gitload import github
 
+from muskox import cache
+
 from muskox.oxpath._exceptions import EmptyPath
 from muskox.oxpath._exceptions import EmptyRepository
 from muskox.oxpath._exceptions import EmptyService
@@ -64,6 +66,9 @@ def fetch(oxpath: str) -> pathlib.Path:
             raise OxpathNotFound(f"The oxpath not found: {oxpath}")
         return pathlib.Path(service_path)
 
+    if (cached_contents := cache.load(oxpath)) is not None:
+        return cached_contents
+
     items: list[str] = service_path.split("/")
 
     if len(items) < 1:
@@ -82,7 +87,10 @@ def fetch(oxpath: str) -> pathlib.Path:
     try:
         download: Downloader = get_downloader(service)
         installation: pathlib.Path = download(username, repository)
-        return next(installation.iterdir())
+
+        contents: pathlib.Path = next(installation.iterdir())
+        cache.upload(oxpath, contents)
+        return contents
 
     except urllib.error.HTTPError:
         raise OxpathNotFound(f"Could not fetch the oxpath: {oxpath}")
